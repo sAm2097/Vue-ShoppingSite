@@ -138,8 +138,6 @@ export default {
       selectedCategory: "",
       selectedColor: "",
       selectedSort: "",
-      colors:['Rot','Grün','Blau'],
-      categories:['A','B','C']
     };
   },
   computed: {
