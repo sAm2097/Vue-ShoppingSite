@@ -14,7 +14,7 @@
                       type="radio"
                       name="categoryOptions"
                       id="a"
-                      value="A"                  
+                      value="A"
                       v-model="selectedCategory"
                       @change="applyFilter"
                     />
@@ -115,13 +115,15 @@
                     <option value="2">Preis : high-low</option>
                   </select>
                 </div>
-              </div>            
+              </div>
             </div>
-           <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="mt-3 ml-3 px-5">
-              <button class="btn btn-primary" @click="clearFilter">Clear filter</button>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="mt-3 ml-3 px-5">
+                <button class="btn btn-primary" @click="clearFilter">
+                  Clear filter
+                </button>
+              </div>
             </div>
-           </div>
           </div>
         </div>
       </div>
@@ -152,7 +154,6 @@ export default {
           product.kategorie.includes(this.selectedCategory)
         );
         console.log(filtered, this.selectedCategory);
-
       }
 
       if (this.selectedColor !== "") {
@@ -163,10 +164,8 @@ export default {
       }
       if (this.selectedSort !== "") {
         if (this.selectedSort === "1") {
-        
           filtered = filtered.sort((a, b) => a.preis - b.preis);
         } else if (this.selectedSort === "2") {
-          
           filtered = filtered.sort((a, b) => b.preis - a.preis);
         }
       }
@@ -180,11 +179,13 @@ export default {
       this.resetProducts();
       this.updateProducts(this.filteredProducts);
     },
-    clearFilter(){
-     this.$store.commit("resetProducts");
-  }
+    clearFilter() {
+      this.$store.commit("resetProducts");
+      this.selectedCategory = "";
+      this.selectedColor = "";
+      this.selectedSort = "";
+    },
   },
- 
 };
 </script>
 
