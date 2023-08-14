@@ -27,7 +27,7 @@
           </ul>
         </li>
           <li class="nav-item" style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25)">
-            <router-link :to="{name:'cart'}" class="nav-link" style="font-size: 1.5rem;"><i class="bi bi-cart3"></i></router-link>
+            <router-link :to="{name:'cart'}" class="nav-link" style="font-size: 1.5rem;"><i class="bi bi-cart3"></i><sup  style="font-size: 60%; color: lightgreen ; font-weight: bolder;">{{ $store.getters.totalQuantity }}  </sup></router-link>
           </li>     
         </ul>      
       </div>

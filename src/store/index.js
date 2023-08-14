@@ -27,6 +27,9 @@ export default createStore({
     },
     totalCartPrice(state) {
       return state.cart.reduce((total, item) => total + item.preis * item.quantity, 0);
+    },
+    totalQuantity(state){
+      return state.cart.reduce((total,item)=>total+item.quantity,0)
     }
   },
 
@@ -53,6 +56,26 @@ export default createStore({
       console.log(state.cart);
       updateLocalStorage(state.cart, state.products);
       
+    },
+
+    removeFromCart(state,prod){
+      let item=state.cart.find((i)=>i.id===prod.id)
+      
+      if(item && item.quantity>1){
+        item.quantity--
+        state.products.forEach((p)=>{
+          if(p.id===prod.id){
+            p.Lagerbestand++
+          }
+        });
+        }
+        else{         
+          // console.log(item)
+         state.cart= state.cart.filter(i=>i.id!==item.id)
+        }
+
+      updateLocalStorage(state.cart, state.products);
+       
     },
 
     updateCartFromLocalStorage(state) {

@@ -6,7 +6,7 @@
       </div>
     </div>
       <div class="row mt-2 pt-3" v-for="prod in cartProducts" :key="prod">
-        <div class="col-2"></div>
+        <div class="col-1"></div>
         <div class="col-md-3">
           <img
             src="../assets/photo.jpg"
@@ -21,25 +21,57 @@
             <h5 class="card-title">{{ prod.title }}</h5>
           
           <p class="mb-0 font-weight-bold" id="item-price">
-            {{ prod.preis }} €
+            Preis: {{ prod.preis }} €
           </p>
-          <p class="mb-0">Quantity : {{ prod.quantity }}</p>
+        
+          <div class="button-container mt-1" style="float: left;">
+            <h6>Quantity:</h6>
+              <div class="quantity-input ml-2">
+                <button class="quantity-button" @click="removeFromCart(prod)">
+                  <i class="bi bi-trash"></i>
+                </button>
+                <p class="mb-0 mx-3 quantity-place" style="float:left"> {{ prod.quantity }}</p>
+                <button class="quantity-button" @click="addToCart(prod)">
+                  <i class="bi bi-bag-plus-fill"></i>
+                </button>
+              </div>
+            </div>
+
         </div>
-        <p class="mb-0">
-          Total:
+        
+      </div>
+      <div class="col-md-2 col-4">
+        <p class="mb-0 items-center" style="float:center">
+          <strong>Total</strong> 
           <span class="font-weight-bold">
-            {{ prod.preis * prod.quantity }} €
+            : {{ prod.preis * prod.quantity }} €
           </span>
         </p>
       </div>
-      <div class="col-2"></div>
       <div class="col-12"><hr /></div>
     </div>
 
     <!-- price for all products -->
-    <div class="total-price pt-2 text-right">
-      <h5>Total: {{ $store.getters.totalCartPrice }}</h5>
+
+   
+    <div class="col-sm-4 col-md-8 col-lg-12 total-price">
+      <div class="row">
+        <div class="col-8">
+          <h5>
+            <strong class="">Total quantity</strong>
+            :  {{ $store.getters.totalQuantity }}     
+          </h5>
+        </div>
+        <div class="col">
+          <h5>
+            <strong>Total Price</strong>
+            : {{ $store.getters.totalCartPrice.toFixed(2) }}
+          </h5>
+        </div>
+      </div>
     </div>
+
+   
   </div>
 </template>
 
@@ -48,17 +80,28 @@ export default {
     name:'CheckOutComponent.vue',
     data(){
         return {
-            totalCost:0
+            totalCost:0,
+            totalQuantity:0
         }
     },
   computed: {
     cartProducts() {
       return this.$store.getters.cartProducts;
-    },
-   
+    },   
   },
-
-
+  methods:{
+    addToCart(prod){
+      if(prod.Lagerbestand>0){
+        this.$store.commit("addToCart", prod)
+      }
+      else {
+            alert(`${prod.title} is out of stock!`)
+      }
+    },
+    removeFromCart(prod){
+      this.$store.commit("removeFromCart",prod)
+    }
+  }
 };
 </script>
 
@@ -66,5 +109,34 @@ export default {
 .total-price{
     text-align: end;
     font-weight: 500;
+}
+
+.quantity-place{
+  background-color: aliceblue;
+  width: 35px;
+  text-align: center;
+  border-radius: 5px;
+}
+.quantity-input {
+  display: flex;
+  align-items: center;
+  background-color: lightgray;
+  border-radius: 30px;
+}
+
+.quantity-button {
+  background-color:lightgray;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.quantity-field {
+  border: none;
+  text-align: center;
+  width: 30px;
+  font-size: 14px;
 }
 </style>
