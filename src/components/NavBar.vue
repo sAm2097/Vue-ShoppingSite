@@ -1,7 +1,7 @@
 <template>
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <router-link :to="{name:'home'}" class="navbar-brand ms-4">ABRIO Cart</router-link>
+    <router-link :to="{name:'home'}" class="navbar-brand ms-4">E-Cart</router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

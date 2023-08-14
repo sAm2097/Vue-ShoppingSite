@@ -1,6 +1,5 @@
 <template>
   <body>
-    
     <header class="navbar">
     <NavBar/>
     </header>   
@@ -12,8 +11,7 @@
         <HomePage></HomePage>
       </div>
     </main>
-  </body>
-  
+  </body> 
 </template>
 
 <script>
