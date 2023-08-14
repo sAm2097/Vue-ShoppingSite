@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" ref="container">
     <div class="row">
       <div
         class="col-lg-4 col-md-6 col-sm-12 mb-4 mt-4"
@@ -44,7 +44,7 @@
 
 <script>
 export default {
-  name: "CartComponent",
+  name: "HomePage",
   data() {
     return {
       // showDangerAlert:false,
@@ -73,14 +73,9 @@ export default {
         }, 2000);
       }
     },
+  
   },
  
-  mounted() {
-    window.onload = function () {
-      window.scrollTo(0, 0);
-    };
-    
-  },
 };
 </script>
 

@@ -64,7 +64,7 @@
         <div class="col">
           <h5>
             <strong>Total Price</strong>
-            : {{ $store.getters.totalCartPrice.toFixed(2) }}
+            : {{ $store.getters.totalCartPrice }}
           </h5>
         </div>
       </div>

@@ -1,5 +1,8 @@
 <template>
-  <router-view/>
+  <div id="app">
+    <router-view/>
+  </div>
+ 
 </template>
 
 <script>
@@ -9,9 +12,11 @@ export default {
     window.addEventListener("storage", (event) => {
       if (event.key === "cart" || event.key === "products") {
         this.$store.commit("updateCartFromLocalStorage");
-      }
+      }  
     });
   },
+
+ 
 }
 </script>
 

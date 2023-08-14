@@ -26,7 +26,7 @@ export default createStore({
       });
     },
     totalCartPrice(state) {
-      return state.cart.reduce((total, item) => total + item.preis * item.quantity, 0);
+      return state.cart.reduce((total, item) => total + item.preis * item.quantity, 0).toFixed(2);
     },
     totalQuantity(state){
       return state.cart.reduce((total,item)=>total+item.quantity,0)

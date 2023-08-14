@@ -25,7 +25,7 @@ export default {
     NavBar,
     HomePage,
     FilterComponent
-  }
+  },
 }
 </script>
 

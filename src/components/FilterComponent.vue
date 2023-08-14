@@ -153,7 +153,7 @@ export default {
         filtered = filtered.filter((product) =>
           product.kategorie.includes(this.selectedCategory)
         );
-        console.log(filtered, this.selectedCategory);
+        // console.log(filtered, this.selectedCategory);
       }
 
       if (this.selectedColor !== "") {
