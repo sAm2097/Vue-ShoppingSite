@@ -4,7 +4,7 @@
       <div class="row m-2">
         <div class="col">
           <div class="row g-1">
-            <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
               <h5 class="card-title ml-2">Kategorie</h5>
               <div class="row">
                 <div class="col">
@@ -47,7 +47,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
               <h5 class="card-title ml-2">Farbe</h5>
               <div class="row">
                 <div class="col">
@@ -96,7 +96,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="d-inline">
                 <h5 class="d-inline custom-inline-item">Sortieren</h5>
                 <i class="bi bi-arrow-down-up custom-inline-item"></i>
@@ -115,8 +115,13 @@
                     <option value="2">Preis : high-low</option>
                   </select>
                 </div>
-              </div>
+              </div>            
             </div>
+           <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="mt-3 ml-3 px-5">
+              <button class="btn btn-primary" @click="clearFilter">Clear filter</button>
+            </div>
+           </div>
           </div>
         </div>
       </div>
@@ -177,7 +182,11 @@ export default {
       this.resetProducts();
       this.updateProducts(this.filteredProducts);
     },
+    clearFilter(){
+     this.$store.commit("resetProducts");
+  }
   },
+ 
 };
 </script>
 
