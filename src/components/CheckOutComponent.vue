@@ -71,20 +71,20 @@
     </div>
 
     <div class="col-sm-4 col-md-8 col-lg-12 mt-4">
-      <div class="card" style="background-color: lightskyblue">
+      <div class="card" style="background-color: lightskyblue;cursor: pointer;" @click="toHome">
         <div class="card-title text-center pt-2">
-          <router-link
-            :to="{ name: 'home' }"
+          <div
             style="text-decoration: none; color: black; font-weight: bold"
-            >Continue shopping</router-link
+            >Continue shopping</div
           >
         </div>
       </div>
       <div
         class="card mt-3"
         style="background-color: green; font-weight: bold; color: white; cursor: pointer;"
+        @click="paymentMethod"
       >
-        <div class="card-title text-center pt-2" @click="paymentMethod">
+        <div class="card-title text-center pt-2" >
           Payment
         </div>
       </div>
@@ -120,6 +120,9 @@ export default {
     paymentMethod() {
       alert("Successful");
     },
+    toHome(){
+      this.$router.push({name:'home'})
+    }
   },
 };
 </script>
